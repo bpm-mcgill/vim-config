@@ -1,0 +1,57 @@
+syntax on
+
+set noerrorbells
+set tabstop=4 softtabstop=4
+
+set shiftwidth=4
+set expandtab
+set nu
+set exrc
+set nowrap
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set signcolumn=yes
+
+set laststatus=2
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+call plug#begin('~/.vim/plugged')                     
+
+Plug 'morhetz/gruvbox'
+Plug 'mbbill/undotree'
+Plug 'vim-utils/vim-man'
+Plug 'lyuts/vim-rtags'                                                                                                                                               
+Plug 'ycm-core/YouCompleteMe', { 'commit':'d98f896' }
+Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/syntastic'
+
+call plug#end()
+
+colorscheme gruvbox
+set background=dark
+
+let g:netrw_banner=0
+let g:vim_be_good_log_file = 1
+let g:vim_apm_log = 1
+
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
+
+let loaded_matchparen = 1
+let mapleader = " "
+
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <Leader>+ :vertical resize +5<CR>
+nnoremap <Leader>- :vertical resize -5<CR>
+nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <Leader>or :vertical resize 100<CR>
